@@ -28,17 +28,47 @@ Next state of D flip-flop is always equal to data input, D for every positive tr
 
 **Procedure**
 
-/* write all the steps invloved */
+1.Define the Module
+- Create a Verilog module for the D flip-flop with inputs (D, clk) and outputs (Q, Q').
+2.Write the Behavioral Code
+- Use an always block triggered on the positive edge of the clock to assign Q = D.
+3.Include Reset Logic (Optional)
+- Implement synchronous or asynchronous reset to initialize the flip-flop state.
+4.Create a Testbench
+- Write a Verilog testbench to apply different input values (D) and observe the output (Q).
+5. Simulate the Design
+- Use simulation tools like ModelSim or Quartus to verify the functional behavior.
+6.Validate Using Functional Tables
+- Compare the simulation results with the expected truth table of a D flip-flop.
+
+
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+```
+ module Dflipflop (d, clk, rst, q);
+ input d, clk, rst;
+ output reg q;
+ always @(negedge clk or posedge rst) begin
+ if (rst)
+ q <= 0; // Reset the flip-flop
+ else
+ q <= d; // D input is passed to Q on the negative clock edge
+ end
+ endmodule
+```
+Developed by:DIVYASHREE B RegisterNumber:212224040081
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![image](https://github.com/user-attachments/assets/67caba38-c484-4ed2-9693-51e14793181c)
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![image](https://github.com/user-attachments/assets/c06a6334-52c8-4d24-911d-2d6b7f032e3b)
+
 
 
 **RESULTS**
+D flipflop using verilog and validating their functionality using their functional tables are verified
